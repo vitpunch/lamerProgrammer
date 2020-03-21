@@ -1,0 +1,29 @@
+задачи для базы данных
+
+1. Показать все опубликованые истории.
+
+SELECT `id`, LEFT(`title`,20), LEFT(`story`,50),`post_date` FROM story ORDER BY `edit_date` DESC;
+
+2. Показать случайную историю.
+
+SELECT `id`, LEFT(`title`,20), LEFT(`story`,50),`post_date` FROM story ORDER BY RAND() LIMIT 1;
+
+3. показать историю по номеру.
+
+SELECT `id`, LEFT(`title`,20), LEFT(`story`,50),`post_date` FROM story WHERE `id` = 3;
+
+4. поиск истории по слову.
+
+SELECT * WHERE story LIKE '%money%';
+
+5. отправить новую историю.
+INSERT INTO story (title, story, email)
+VALUES ('Break', 'Money, money - great money!', 'vitpunch@yandex.ru')
+
+INSERT INTO story
+	SET title = 'Моя вторая история',
+		story = 'Здесь офигительная история про как я буду крут',
+		email = 'vitpunch@yandex.ru',
+		post_date = NOW(),
+		edit_date = NOW();
+
